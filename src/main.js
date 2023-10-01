@@ -47,13 +47,11 @@ function sendDailyNotifications() {
         for (const [chore, value] of Object.entries(chores)) {
             message += `*${chore}*: ${value.assignee}\n`;
         }
-        console.log(message);
-        // await bot.api.sendMessage(chatId, message);
+        yield bot.api.sendMessage(chatId, message);
     });
 }
-cron.schedule('* * * * * *', sendDailyNotifications, {
+cron.schedule('0 9 * * *', sendDailyNotifications, {
     timezone: 'Europe/Warsaw',
 });
-sendDailyNotifications();
 // Start the bot
 bot.start();

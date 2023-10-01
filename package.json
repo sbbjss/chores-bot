@@ -2,7 +2,7 @@
   "name": "chores-bot",
   "scripts": {
     "dev": "yarn tsc && export DEBUG=\"grammy*\" && node src/main.js",
-    "start": "node src/main.js"
+    "start": "yarn tsc && node src/main.js"
   },
   "version": "1.0.0",
   "dependencies": {

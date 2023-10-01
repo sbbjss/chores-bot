@@ -31,12 +31,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv = __importStar(require("dotenv"));
-const grammy_1 = require("grammy");
 const cron = __importStar(require("node-cron"));
+const express_1 = __importDefault(require("express"));
+const grammy_1 = require("grammy");
 const GoogleSheets_1 = require("./handlers/sheets/GoogleSheets");
 dotenv.config();
+const app = (0, express_1.default)();
+app.listen(8080, () => {
+    console.log('Server is running on port 8080 🚀');
+});
 // Create an instance of the `Bot` class and pass your bot token to it.
 const bot = new grammy_1.Bot((process.env.TELEGRAM_API_KEY)); // <-- put your bot token between the ""
 function sendDailyNotifications() {

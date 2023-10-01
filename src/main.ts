@@ -1,9 +1,16 @@
 import * as dotenv from "dotenv";
-import { Bot } from 'grammy';
 import * as cron from 'node-cron';
+import express from 'express';
+import { Bot } from 'grammy';
 import { getSheetData } from './handlers/sheets/GoogleSheets';
 
 dotenv.config();
+
+const app = express();
+
+app.listen(8080, () => {
+  console.log('Server is running on port 8080 🚀');
+});
 
 // Create an instance of the `Bot` class and pass your bot token to it.
 const bot = new Bot((process.env.TELEGRAM_API_KEY!)); // <-- put your bot token between the ""

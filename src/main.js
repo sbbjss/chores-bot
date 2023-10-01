@@ -42,7 +42,7 @@ const grammy_1 = require("grammy");
 const GoogleSheets_1 = require("./handlers/sheets/GoogleSheets");
 dotenv.config();
 const app = (0, express_1.default)();
-app.listen(8080, () => {
+app.listen(8080, '0.0.0.0', () => {
     console.log('Server is running on port 8080 🚀');
 });
 // Create an instance of the `Bot` class and pass your bot token to it.
